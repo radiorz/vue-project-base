@@ -5,13 +5,11 @@ export var SCROLL_DIRECTIONS = {
   left: "left",
   right: "right",
 };
-// TODO 
+// TODO
 // 这里取的父节点，不是一种很好的做法，最好是自己生children比较合适
-
 
 export async function marquee(el, settings = {}) {
   try {
-    
     Vue.nextTick(() => {
       // 子节点
       var parent = el.parentNode; // 父节点
@@ -66,17 +64,12 @@ export async function marquee(el, settings = {}) {
       }
 
       if (isHorizontal) {
-        console.log(
-          `!el.classList.contains('whitespace-nowrap')`,
-          !el.classList.contains("whitespace-nowrap")
-        );
         // 水平应该不折行显示
         if (!el.classList.contains("whitespace-nowrap")) {
           resets.push(() => {
             el.classList.remove("whitespace-nowrap");
           });
           el.classList.add("whitespace-nowrap");
-          console.log(`el.classList`, el.classList);
         }
       } else if (isVertical) {
         // 垂直滚动应该折行显示
