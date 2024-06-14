@@ -1,0 +1,26 @@
+{
+  "name": "@tikkhun/vue-hooks",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-hooks.umd.cjs",
+  "module": "./dist/vue-hooks.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    "types": "./dist/main.d.ts",
+    "import": "./dist/vue-hooks.js",
+    "require": "./dist/vue-hooks.umd.cjs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10"
+  },
+  "dependencies": {
+  }
+}
