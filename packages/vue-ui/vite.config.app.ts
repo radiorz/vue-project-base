@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 
 import packageJson from "./package.json";
 import { fileURLToPath, URL } from "node:url";
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
+
 const name = packageJson.name.split("/")[1];
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [react()],
   build: {
     lib: {
       entry: "./lib/index.ts",
@@ -14,7 +14,7 @@ export default defineConfig({
       fileName: name,
     },
     rollupOptions: {
-      external: ["vue"],
+      external: ["react", "react-dom", "react-router", "react-router-dom"],
     },
   },
   resolve: {
