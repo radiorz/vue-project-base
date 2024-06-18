@@ -154,6 +154,9 @@ importers:
 
   projects/vue-project:
     dependencies:
+      '@tikkhun/vue-ui':
+        specifier: workspace:^
+        version: link:../../packages/vue-ui
       pinia:
         specifier: ^2.1.7
         version: 2.1.7(typescript@5.4.5)(vue@3.4.28(typescript@5.4.5))
