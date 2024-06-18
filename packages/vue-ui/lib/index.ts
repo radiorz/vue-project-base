@@ -1,2 +1,3 @@
-export { default as TheTime } from "./components/TheTime.vue";
-export { default as TheResize } from "./components/TheResize.vue";
+export * from './layout'
+export * from './components'
+export * from './directive'
