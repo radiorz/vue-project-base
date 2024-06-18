@@ -7,7 +7,7 @@ const height = ref(0)
 function setHeight() {
   if (theEl.value) {
     const rect = theEl.value.getBoundingClientRect()
-    height.value = window.innerHeight - rect.y - props.footerHeight
+    height.value = window.innerHeight - rect.y - (props.footerHeight || 0)
   }
 }
 onMounted(async () => {
