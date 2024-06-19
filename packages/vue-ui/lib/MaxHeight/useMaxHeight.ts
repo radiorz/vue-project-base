@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, ref } from 'vue'
-function getHeight(el: HTMLElement, footerHeight: number = 0) {
+export function getHeight(el: HTMLElement, footerHeight: number = 0) {
   const rect = el.getBoundingClientRect()
   return window.innerHeight - rect.y - footerHeight
 }
