@@ -1,15 +1,15 @@
 {
   "name": "@tikkhun/vue-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "files": [
     "dist"
   ],
   "main": "./dist/vue-ui.umd.cjs",
   "module": "./dist/vue-ui.js",
-  "types": "./dist/main.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "types": "./dist/main.d.ts",
+    "types": "./dist/index.d.ts",
     "import": "./dist/vue-ui.js",
     "require": "./dist/vue-ui.umd.cjs"
   },
@@ -23,6 +23,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@tikkhun/vue-hooks": "workspace:^",
+    "@tikkhun/web-utils": "^0",
     "vue": "^3.4.21"
   },
   "devDependencies": {

@@ -18,13 +18,16 @@
 
 <script lang="ts">
 export default {
-  name: "TheTime",
-};
+  name: 'TheTime'
+}
 </script>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTime } from '@tikkhun/vue-hooks'
+const { currentTime } = useTime()
+</script>
 
 <template>
-  <div class="TheTime">TheTime</div>
+  <div class="TheTime">{{ currentTime.value.toLocaleTimeString() }}</div>
 </template>
 
 <style lang="scss" scoped></style>

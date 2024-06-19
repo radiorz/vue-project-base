@@ -22,12 +22,13 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { MaxHeight } from '../lib'
+import { MaxHeight, TheTime } from '../lib'
 </script>
 
 <template>
   <div class="App">
     App
+    <TheTime></TheTime>
     <MaxHeight :footerHeight="0">
       <template #default="{ height }">
         <div

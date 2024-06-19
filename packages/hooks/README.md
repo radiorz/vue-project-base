@@ -1,5 +1,11 @@
-# rules
+# vue-hooks
 
-vuetify rules 配置
+集合一些常用 hooks
 
-与 vuetify form 组件一起使用即可
+## 使用
+
+```
+import {useTime} from '@tikkhun/vue-hooks'
+const {currentTime} = useTime()
+
+```
