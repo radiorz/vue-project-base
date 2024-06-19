@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, ref } from 'vue'
-export function getHeight(el: HTMLElement, footerHeight: number = 0) {
+export function getMaxHeight(el: HTMLElement, footerHeight: number = 0) {
   const rect = el.getBoundingClientRect()
   return window.innerHeight - rect.y - footerHeight
 }
@@ -7,7 +7,7 @@ export function useMaxHeight(el: HTMLElement | null, footerHeight: number = 0) {
   const height = ref(0)
   function setHeight() {
     if (el) {
-      height.value = getHeight(el, footerHeight)
+      height.value = getMaxHeight(el, footerHeight)
     }
   }
   onMounted(async () => {
