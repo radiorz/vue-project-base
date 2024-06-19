@@ -27,9 +27,9 @@ import { MaxHeight, TheTime } from '../lib'
 
 <template>
   <div class="App">
-    App
+    App123
     <TheTime></TheTime>
-    <MaxHeight :footerHeight="0">
+    <MaxHeight>
       <template #default="{ height }">
         <div
           :style="{
