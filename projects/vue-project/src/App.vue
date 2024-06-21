@@ -23,12 +23,13 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { MaxHeight } from '@tikkhun/vue-ui'
+import { MaxHeight, TheTime } from '@tikkhun/vue-ui'
 </script>
 
 <template>
   <div class="App">
     App
+    <TheTime></TheTime>
     <MaxHeight>
       <template #default="{ height }">
         <div :style="{ height: height + 'px', background: 'green' }">{{ height }}</div>
