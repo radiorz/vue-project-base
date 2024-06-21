@@ -22,12 +22,14 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { useTime } from './useTime'
+import { useTime } from '@tikkhun/vue-hooks'
+import { computed } from 'vue'
 const { currentTime } = useTime()
+const date = computed(() => currentTime.value.toLocaleTimeString())
 </script>
 
 <template>
-  <div class="TheTime">{{ currentTime.toLocaleTimeString() }}</div>
+  <div class="TheTime">{{ date }}</div>
 </template>
 
 <style lang="scss" scoped></style>

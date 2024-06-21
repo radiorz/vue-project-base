@@ -7,9 +7,9 @@
   ],
   "main": "./dist/vue-ui.umd.cjs",
   "module": "./dist/vue-ui.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/lib/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
+    "types": "./dist/lib/index.d.ts",
     "import": "./dist/vue-ui.js",
     "require": "./dist/vue-ui.umd.cjs"
   },
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.6",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/eslint-config-prettier": "^9.0.0",
