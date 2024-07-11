@@ -2,9 +2,9 @@
  
 /**
  * @author
- * @file Draggable.vue
- * @fileBase Draggable
- * @path packages\vue-ui\lib\Draggable\Draggable.vue
+ * @file Resizeable.vue
+ * @fileBase Resizeable
+ * @path packages\vue-ui\lib\Resizeable\Resizeable.vue
  * @from 
  * @desc 
  * @todo
@@ -17,9 +17,8 @@
 -->
 
 <script setup lang="ts">
-import { ref } from 'vue'
 defineOptions({
-  name: 'TheDraggable'
+  name: 'TheResizeable'
 })
 export interface Props {
   foo: string
@@ -31,13 +30,10 @@ export interface Emits {
   (e: 'change', value: number): void
 }
 const emit = defineEmits<Emits>()
-const dragEl = ref<HTMLElement | null>(null)
 </script>
 
 <template>
-  <div ref="dragEl">
-    <slot></slot>
-  </div>
+  <div class="Resizeable">Resizeable</div>
 </template>
 
 <style lang="scss" scoped></style>
