@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #movable {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="movable"></div>
+
+  <script>
+    var movable = document.getElementById('movable');
+    var isDragging = false;
+    var lastX = 0;
+    var lastY = 0;
+
+    movable.addEventListener('mousedown', function (e) {
+      isDragging = true;
+      lastX = e.clientX;
+      lastY = e.clientY;
+    });
+
+    document.addEventListener('mousemove', function (e) {
+      if (!isDragging) return;
+
+      var deltaX = e.clientX - lastX;
+      var deltaY = e.clientY - lastY;
+
+      var currentLeft = parseInt(getComputedStyle(movable, null).getPropertyValue('left'));
+      var currentTop = parseInt(getComputedStyle(movable, null).getPropertyValue('top'));
+
+      movable.style.left = (currentLeft + deltaX) + 'px';
+      movable.style.top = (currentTop + deltaY) + 'px';
+
+      lastX = e.clientX;
+      lastY = e.clientY;
+    });
+
+    document.addEventListener('mouseup', function () {
+      isDragging = false;
+    });
+  </script>
+</body>
+
+</html>
