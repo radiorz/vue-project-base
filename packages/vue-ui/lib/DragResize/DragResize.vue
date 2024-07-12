@@ -17,6 +17,7 @@
 -->
 
 <script setup lang="ts">
+import { ref } from 'vue'
 defineOptions({
   name: 'DragResize'
 })
@@ -30,6 +31,8 @@ export interface Emits {
   (e: 'change', value: number): void
 }
 const emit = defineEmits<Emits>()
+const width = ref(0)
+const height = ref(0)
 </script>
 
 <template>

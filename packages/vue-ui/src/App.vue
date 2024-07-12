@@ -1,40 +1,27 @@
-<!--
- 
-/**
- * @author
- * @file App.vue
- * @fileBase App
- * @path packages\vue-ui\src\App.vue
- * @from 
- * @desc App
- * @todo
- * 
- *
- * @done
- * @example
- */
-
--->
-
 <script lang="ts">
 export default {
   name: 'App'
 }
 </script>
 <script setup lang="ts">
-import { MaxHeight, TheTime } from '../lib'
-import { vResizeable, vDraggable } from '../lib'
+import { Draggable, MaxHeight, Resizeable, TheTime, vDraggable } from '../lib';
 const style = {
   width: '100px',
   height: '100px',
   backgroundColor: 'green'
 }
+const max = { width: '100%', height: '100%', backgroundColor: 'orange', color: 'white' }
 </script>
 
 <template>
   <div class="App">
-    <div :style="style" v-draggable></div>
-    App123
+    <div :style="style" v-draggable>vDraggable</div>
+    <Draggable :style="style">
+      <div :style="max">draggable</div>
+    </Draggable>
+    <Resizeable :style="style">
+      <div :style="max">resizeable</div>
+    </Resizeable>
     <TheTime></TheTime>
     <MaxHeight>
       <template #default="{ height }">

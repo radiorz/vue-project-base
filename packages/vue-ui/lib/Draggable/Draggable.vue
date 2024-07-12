@@ -17,7 +17,8 @@
 -->
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
+import { useDraggable } from './useDraggable'
 defineOptions({
   name: 'TheDraggable'
 })
@@ -32,6 +33,7 @@ defineOptions({
 // }
 // const emit = defineEmits<Emits>()
 const dragEl = ref<HTMLElement | null>(null)
+useDraggable(dragEl as Ref<HTMLElement>)
 </script>
 
 <template>
