@@ -23,10 +23,17 @@ export default {
 </script>
 <script setup lang="ts">
 import { MaxHeight, TheTime } from '../lib'
+import { vResizeable, vDraggable } from '../lib'
+const style = {
+  width: '100px',
+  height: '100px',
+  backgroundColor: 'green'
+}
 </script>
 
 <template>
   <div class="App">
+    <div :style="style" v-draggable></div>
     App123
     <TheTime></TheTime>
     <MaxHeight>

@@ -1,11 +1,12 @@
-export const resizeable = {
-  bind: function (el: any, binding: any, vnode: any) {
+export const vResizeable = {
+  mounted: function (el: any, binding: any, vnode: any) {
     const resizeable = el
     let isResizing = false
     let lastX = 0
     let lastY = 0
 
-    resizeable.addEventListener('mousedown', function (e) {
+    console.log(`resizable`)
+    resizeable.addEventListener('mousedown', function (e: any) {
       isResizing = true
       lastX = e.clientX
       lastY = e.clientY
