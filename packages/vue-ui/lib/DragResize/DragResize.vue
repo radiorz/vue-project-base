@@ -22,22 +22,27 @@ defineOptions({
   name: 'DragResize'
 })
 export interface Props {
-  foo: string
+  width: number
+  height: number
+  minWidth: number
+  minHeight: number
 }
 const props = withDefaults(defineProps<Props>(), {
-  foo: ''
+  width: 1,
+  height: 1,
+  minWidth: 1,
+  minHeight: 1
 })
-export interface Emits {
-  (e: 'change', value: number): void
-}
-const emit = defineEmits<Emits>()
-const width = ref(0)
-const height = ref(0)
+// export interface Emits {
+//   (e: 'change', value: number): void
+// }
+// const emit = defineEmits<Emits>()
+
 </script>
 
 <template>
   <div class="DragResize">
-    <slot :width="width" :height="height"></slot>
+    <slot :width="props.width" :height="props.height"></slot>
   </div>
 </template>
 
