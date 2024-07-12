@@ -12,15 +12,15 @@
  * @example
  */
 
-import { useState, useEffect } from 'react'
-// import { useDispatch } from "react-redux";
+import { ref } from 'vue'
+
 export interface useBackupToTopOptions {}
 
 export const defaultuseBackupToTopOptions: useBackupToTopOptions = {}
 
-export default function useBackupToTop(options: Partial<useBackupToTopOptions> = {}) {
+export function useBackupToTop(options: Partial<useBackupToTopOptions> = {}) {
   const opts = { ...defaultuseBackupToTopOptions, ...options }
-  const [value] = useState(null)
+  const value = ref(null)
 
   return { value }
 }
