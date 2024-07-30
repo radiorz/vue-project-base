@@ -24,21 +24,21 @@ export interface Props {
   disabled: boolean
   active: boolean
 }
-const props = withDefaults(defineProps<Props>(), {
-  disabled: false,
-  active: false
-})
-export interface Emits {
-  (e: 'change', value: number): void
-}
-const emit = defineEmits<Emits>()
-function update(data) {
-  emit('change', data)
-}
+// const props = withDefaults(defineProps<Props>(), {
+//   disabled: false,
+//   active: false
+// })
+// export interface Emits {
+//   (e: 'change', value: number): void
+// }
+// const emit = defineEmits<Emits>()
+// function update(data) {
+//   emit('change', data)
+// }
 </script>
 
 <template>
-  <div>IpInput</div>
+  <div class="text-3xl font-bold underline">IpInput</div>
 </template>
 
 <style lang="scss" scoped>
