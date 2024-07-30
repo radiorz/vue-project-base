@@ -25,7 +25,8 @@ function doSomething(e) {
 </script>
 
 <template>
-  <div class="App">
+  <div class="App bg-midnight">
+    123123123123
     <div :style="style" v-drop="doSomething">vDraggable</div>
     111
     <div :style="style" v-draggable>vDraggable</div>

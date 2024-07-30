@@ -4,9 +4,11 @@ import packageJson from './package.json'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+
 const name = packageJson.name.split('/')[1]
 export default defineConfig({
   plugins: [vue(), vueJsx()],
+
   build: {
     lib: {
       entry: './lib/index.ts',
