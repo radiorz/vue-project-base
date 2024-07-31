@@ -17,7 +17,9 @@
 -->
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { Ipv4Input } from '../lib'
+const value = ref('1.2.3.4')
 defineOptions({
   name: 'App'
 })
@@ -35,7 +37,8 @@ defineOptions({
 
 <template>
   <div>
-    <Ipv4Input></Ipv4Input>
+    {{ value }}
+    <Ipv4Input v-model="value"></Ipv4Input>
   </div>
 </template>
 
