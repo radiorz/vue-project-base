@@ -17,12 +17,10 @@
 -->
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Ipv4Input } from '../lib'
-const value = ref('1.2.3.4')
 defineOptions({
   name: 'App'
 })
+import NinePatchDemo from '../lib/nine-patch/NinePatch.demo.vue'
 // export interface Props {
 //   foo: string
 // }
@@ -36,10 +34,7 @@ defineOptions({
 </script>
 
 <template>
-  <div>
-    {{ value }}
-    <Ipv4Input v-model="value"></Ipv4Input>
-  </div>
+  <div><NinePatchDemo></NinePatchDemo></div>
 </template>
 
 <style scoped></style>
