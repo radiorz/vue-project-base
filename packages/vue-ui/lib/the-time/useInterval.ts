@@ -26,7 +26,7 @@ export function useInterval(options: Partial<UseIntervalOptions>) {
       callback();
     }
 
-    intervalId.value = setInterval(callback, interval);
+    intervalId.value = window.setInterval(callback, interval);
   };
 
   const stop = () => {

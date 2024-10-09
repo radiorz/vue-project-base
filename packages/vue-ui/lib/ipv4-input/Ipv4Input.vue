@@ -22,9 +22,9 @@ defineOptions({
   name: 'IpInput'
 })
 export interface Props {
-  modelValue: string
-  disabled: boolean
-  active: boolean
+  modelValue?: string
+  disabled?: boolean
+  active?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   modelValue: '0.0.0.0',
@@ -82,7 +82,7 @@ function onPaste(e: any) {
 </script>
 
 <template>
-  <div class="ipv4-input flex justify-center items-center">
+  <div class="flex items-center justify-center ipv4-input">
     <template v-for="(item, i) of segments" :key="i">
       <input
         class="segment"

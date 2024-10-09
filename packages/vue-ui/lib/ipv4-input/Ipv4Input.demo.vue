@@ -17,11 +17,11 @@
 -->
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import Ipv4Input from './Ipv4Input.vue'
 defineOptions({
   name: 'Ipv4InputDemo'
 })
-import { ref } from 'vue'
-import Ipv4Input from './Ipv4Input.vue'
 const value = ref('1.1.1.1')
 </script>
 
