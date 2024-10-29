@@ -29,7 +29,11 @@ export default {
   // props: {},
   data(){
     return{
-      items: [{value: "1",title: "1",active: false },{value: 2, title: "2",active: true}]
+      items: [
+        {value: "1",title: "1",active: false },
+        {value: 2, title: "2",active: true},
+        {value: 3, title: "3",active: false}
+      ]
     }
   },
   // 组件方法

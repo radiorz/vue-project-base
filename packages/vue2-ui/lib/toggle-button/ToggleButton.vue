@@ -19,7 +19,6 @@
     <div :class="['toggle-button',{active: item.active}]" v-for="item in value" :key="item.value" @click="()=>toggle(item.value)">
       {{ item.title }} <!-- {{ item.active }} -->
     </div> 
-  
   </div>
 </template>
 
@@ -41,7 +40,6 @@ export default {
   },
   data(){
     return{
-      data: 666
     }
   },
   // 组件方法
