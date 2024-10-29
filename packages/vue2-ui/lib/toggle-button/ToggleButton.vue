@@ -1,5 +1,3 @@
-
-
 <!--
  
 /**
@@ -16,31 +14,44 @@
 
 <template>
   <div class="toggle-button-group">
-    <div :class="['toggle-button',{active: item.active}]" v-for="item in value" :key="item.value" @click="()=>toggle(item.value)">
-      {{ item.title }} <!-- {{ item.active }} -->
-    </div> 
+    <template v-for="item in value">
+      <Badge
+        :value="item.badge"
+        :max="99"
+        :hidden="item.badge <= 0"
+        class="toggle-button-badge"
+      >
+        <div
+          :class="['toggle-button', { active: item.active }]"
+          :key="item.value"
+          @click="() => toggle(item.value)"
+        >
+          {{ item.title }}
+          <!-- {{ item.active }} -->
+        </div>
+      </Badge>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-
+import { Badge } from "element-ui";
 export default {
   // 组件名
-  name: 'ToggleButtonGroup',
-  components: {},
+  name: "ToggleButtonGroup",
+  components: { Badge },
   // filters:{},
   // mixins:[],
   props: {
     value: {
-        type:  Array,
-        default: ()=> [],
-        // required: true,
-        // validator() { return  }
+      type: Array,
+      default: () => [],
+      // required: true,
+      // validator() { return  }
+    },
   },
-  },
-  data(){
-    return{
-    }
+  data() {
+    return {};
   },
   // 组件方法
   // computed:{},
@@ -48,20 +59,18 @@ export default {
   // created(){},
   methods: {
     toggle(value: string) {
-      const newItems = this.value?.map((
-        item
-      )=> {
-        if(item.value !== value){
-          return {...item, active: false}
+      const newItems = this.value?.map((item) => {
+        if (item.value !== value) {
+          return { ...item, active: false };
         }
-        return {...item, active:true}
-      })
+        return { ...item, active: true };
+      });
       // console.log(`newItems`,newItems)
-      this.$emit('input',newItems)
-    }
+      this.$emit("input", newItems);
+    },
   },
-}
-</script> 
+};
+</script>
 
 <style lang="scss" scoped>
 .toggle-button-group {

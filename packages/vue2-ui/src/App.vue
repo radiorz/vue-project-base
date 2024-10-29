@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import ToggleButtonDemo from '../lib/toggle-button/ToggleButotn.demo.vue'
+import ToggleButtonDemo from '../lib/toggle-button/ToggleButton.demo.vue'
 export default {
   // 组件名
   name: 'App',

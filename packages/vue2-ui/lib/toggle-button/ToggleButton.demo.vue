@@ -1,5 +1,3 @@
-
-
 <!--
  
 /**
@@ -15,35 +13,33 @@
 -->
 
 <template>
-<ToggleButton v-model="items"></ToggleButton>
+  <ToggleButton v-model="items"></ToggleButton>
 </template>
 
 <script lang="ts">
-import ToggleButton from './ToggleButton.vue';
+import ToggleButton from "./ToggleButton.vue";
 export default {
   // 组件名
-  name: 'ToggleButtonDemo',
-  components: {ToggleButton},
+  name: "ToggleButtonDemo",
+  components: { ToggleButton },
   // filters:{},
   // mixins:[],
   // props: {},
-  data(){
-    return{
+  data() {
+    return {
       items: [
-        {value: "1",title: "1",active: false },
-        {value: 2, title: "2",active: true},
-        {value: 3, title: "3",active: false}
-      ]
-    }
+        { value: "1", title: "1", active: false },
+        { value: 2, title: "2", active: true, badge: 3 },
+        { value: 3, title: "3", active: false, badge: 3 },
+      ],
+    };
   },
   // 组件方法
   // computed:{},
   // watch:{},
   // created(){},
   methods: {},
-}
-</script> 
+};
+</script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
