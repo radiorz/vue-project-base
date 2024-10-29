@@ -1,6 +1,5 @@
 {
   "name": "@tikkhun/vue2-ui",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/vue2-ui.js",
