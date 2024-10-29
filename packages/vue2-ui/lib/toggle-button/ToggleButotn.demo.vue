@@ -15,7 +15,7 @@
 -->
 
 <template>
-<ToggleButton></ToggleButton>
+<ToggleButton v-model="items"></ToggleButton>
 </template>
 
 <script lang="ts">
@@ -29,7 +29,7 @@ export default {
   // props: {},
   data(){
     return{
-      
+      items: [{value: "1",title: "1",active: false },{value: 2, title: "2",active: true}]
     }
   },
   // 组件方法

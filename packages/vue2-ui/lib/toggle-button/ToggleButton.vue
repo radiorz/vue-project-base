@@ -16,7 +16,10 @@
 
 <template>
   <div class="toggle-button-group">
-    {{ data }}
+    <div :class="['toggle-button',{active: item.active}]" v-for="item in value" :key="item.value" @click="()=>toggle(item.value)">
+      {{ item.title }} <!-- {{ item.active }} -->
+    </div> 
+  
   </div>
 </template>
 
@@ -28,7 +31,14 @@ export default {
   components: {},
   // filters:{},
   // mixins:[],
-  // props: {},
+  props: {
+    value: {
+        type:  Array,
+        default: ()=> [],
+        // required: true,
+        // validator() { return  }
+  },
+  },
   data(){
     return{
       data: 666
@@ -38,12 +48,31 @@ export default {
   // computed:{},
   // watch:{},
   // created(){},
-  methods: {},
+  methods: {
+    toggle(value: string) {
+      const newItems = this.value?.map((
+        item
+      )=> {
+        if(item.value !== value){
+          return {...item, active: false}
+        }
+        return {...item, active:true}
+      })
+      // console.log(`newItems`,newItems)
+      this.$emit('input',newItems)
+    }
+  },
 }
 </script> 
 
 <style lang="scss" scoped>
 .toggle-button-group {
-  @apply rounded-lg shadow-sm bg-green-500;
+  @apply rounded-md bg-white flex flex-row gap-1 w-min p-0.5;
+}
+.toggle-button {
+  @apply text-blue-600 bg-white rounded-md p-1 w-16 text-center cursor-pointer;
+  &.active {
+    @apply bg-blue-600 text-white;
+  }
 }
 </style>
