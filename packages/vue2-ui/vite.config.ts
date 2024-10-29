@@ -7,7 +7,13 @@ import { toBigCamelCase } from "@tikkhun/utils-core";
 const name = getNameFromPackageJson(packageJson);
 export default defineConfig({
   plugins: [vue()],
-
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/variables.scss";`,
+      },
+    },
+  },
   build: {
     sourcemap: true,
     lib: {

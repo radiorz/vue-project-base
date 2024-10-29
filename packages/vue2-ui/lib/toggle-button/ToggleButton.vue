@@ -15,12 +15,13 @@
 -->
 
 <template>
-  <div>
+  <div class="toggle-button-group">
     {{ data }}
   </div>
 </template>
 
 <script lang="ts">
+
 export default {
   // 组件名
   name: 'ToggleButtonGroup',
@@ -42,5 +43,7 @@ export default {
 </script> 
 
 <style lang="scss" scoped>
-
+.toggle-button-group {
+  @apply rounded-lg shadow-sm bg-green-500;
+}
 </style>
