@@ -187,6 +187,12 @@ importers:
 
   packages/vue2-ui:
     dependencies:
+      '@types/vue':
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.6.3)
+      '@vue/composition-api':
+        specifier: ^1.7.2
+        version: 1.7.2(vue@2.7.16)
       element-ui:
         specifier: ^2.15.14
         version: 2.15.14(vue@2.7.16)
@@ -200,6 +206,9 @@ importers:
       '@vitejs/plugin-vue2':
         specifier: ^2.3.1
         version: 2.3.1(vite@5.4.10(@types/node@22.7.5)(sass@1.79.4)(terser@5.27.2))(vue@2.7.16)
+      sass:
+        specifier: ^1.79.4
+        version: 1.79.4
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
@@ -217,7 +226,7 @@ importers:
         version: link:../../packages/vue-ui
       pinia:
         specifier: ^2.1.7
-        version: 2.1.7(typescript@5.4.5)(vue@3.4.28(typescript@5.4.5))
+        version: 2.1.7(@vue/composition-api@1.7.2(vue@3.4.28(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.28(typescript@5.4.5))
       vue:
         specifier: ^3.4.21
         version: 3.4.28(typescript@5.4.5)
@@ -1010,6 +1019,10 @@ packages:
   '@types/tough-cookie@4.0.5':
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
 
+  '@types/vue@2.0.0':
+    resolution: {integrity: sha512-WDElkBv/o4lVwu6wYHB06AXs4Xo2fwDjJUpvPRc1QQdzkUSiGFjrYuSCy8raxLE5FObgKq8ND7R5gSZTFLK60w==}
+    deprecated: This is a stub types definition for vuejs (https://github.com/vuejs/vue). vuejs provides its own type definitions, so you don't need @types/vue installed!
+
   '@typescript-eslint/eslint-plugin@7.13.0':
     resolution: {integrity: sha512-FX1X6AF0w8MdVFLSdqwqN/me2hyhuQg4ykN6ZpVhh1ij/80pTvDKclX1sZB9iqex8SjQfVhwMKs3JtnnMLzG9w==}
     engines: {node: ^18.18.0 || >=20.0.0}
@@ -1290,6 +1303,11 @@ packages:
 
   '@vue/compiler-vue2@2.7.16':
     resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
+
+  '@vue/composition-api@1.7.2':
+    resolution: {integrity: sha512-M8jm9J/laYrYT02665HkZ5l2fWTK4dcVg3BsDHm/pfz+MjDYwX+9FUaZyGwEyXEDonQYRCo0H7aLgdklcIELjw==}
+    peerDependencies:
+      vue: '>= 2.5 < 2.7'
 
   '@vue/devtools-api@6.6.3':
     resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
@@ -4314,6 +4332,12 @@ snapshots:
 
   '@types/tough-cookie@4.0.5': {}
 
+  '@types/vue@2.0.0(typescript@5.6.3)':
+    dependencies:
+      vue: 3.5.11(typescript@5.6.3)
+    transitivePeerDependencies:
+      - typescript
+
   '@typescript-eslint/eslint-plugin@7.13.0(@typescript-eslint/parser@7.13.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)':
     dependencies:
       '@eslint-community/regexpp': 4.10.1
@@ -4808,6 +4832,15 @@ snapshots:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
+
+  '@vue/composition-api@1.7.2(vue@2.7.16)':
+    dependencies:
+      vue: 2.7.16
+
+  '@vue/composition-api@1.7.2(vue@3.4.28(typescript@5.4.5))':
+    dependencies:
+      vue: 3.4.28(typescript@5.4.5)
+    optional: true
 
   '@vue/devtools-api@6.6.3': {}
 
@@ -6445,12 +6478,13 @@ snapshots:
 
   pify@2.3.0: {}
 
-  pinia@2.1.7(typescript@5.4.5)(vue@3.4.28(typescript@5.4.5)):
+  pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.28(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.28(typescript@5.4.5)):
     dependencies:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.28(typescript@5.4.5)
-      vue-demi: 0.14.8(vue@3.4.28(typescript@5.4.5))
+      vue-demi: 0.14.8(@vue/composition-api@1.7.2(vue@3.4.28(typescript@5.4.5)))(vue@3.4.28(typescript@5.4.5))
     optionalDependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.28(typescript@5.4.5))
       typescript: 5.4.5
 
   pirates@4.0.6: {}
@@ -7328,9 +7362,11 @@ snapshots:
 
   vue-component-type-helpers@2.0.21: {}
 
-  vue-demi@0.14.8(vue@3.4.28(typescript@5.4.5)):
+  vue-demi@0.14.8(@vue/composition-api@1.7.2(vue@3.4.28(typescript@5.4.5)))(vue@3.4.28(typescript@5.4.5)):
     dependencies:
       vue: 3.4.28(typescript@5.4.5)
+    optionalDependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.28(typescript@5.4.5))
 
   vue-eslint-parser@9.4.3(eslint@8.57.0):
     dependencies:

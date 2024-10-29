@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [vue()],
 
   build: {
+    sourcemap: true,
     lib: {
       entry: "./lib/index.ts",
       name: toBigCamelCase(name),
@@ -18,9 +19,10 @@ export default defineConfig({
       output: {
         globals: {
           vue: "Vue",
+          "element-ui": "ELEMENT",
         },
       },
-      external: ["vue"],
+      external: ["vue", "element-ui"],
     },
   },
   resolve: {

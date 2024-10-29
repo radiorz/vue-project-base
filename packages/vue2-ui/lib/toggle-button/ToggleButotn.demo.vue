@@ -4,9 +4,9 @@
  
 /**
  * @author
- * @file App.vue
- * @fileBase App
- * @path packages\vue2-ui\src\App.vue
+ * @file ToggleButotn.demo.vue
+ * @fileBase ToggleButotn.demo
+ * @path packages\vue2-ui\lib\toggle-button\ToggleButotn.demo.vue
  * @from 
  * @desc 
  * @example
@@ -15,15 +15,15 @@
 -->
 
 <template>
-  <ToggleButtonDemo></ToggleButtonDemo>
+<ToggleButton></ToggleButton>
 </template>
 
 <script lang="ts">
-import ToggleButtonDemo from '../lib/toggle-button/ToggleButotn.demo.vue'
+import ToggleButton from './ToggleButton.vue';
 export default {
   // 组件名
-  name: 'App',
-  components: {ToggleButtonDemo},
+  name: 'ToggleButtonDemo',
+  components: {ToggleButton},
   // filters:{},
   // mixins:[],
   // props: {},
