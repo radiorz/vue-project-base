@@ -1,6 +1,6 @@
 {
   "name": "@tikkhun/vue2-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/vue2-ui.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "element-ui": "^2.15.14",
-    "@vue/composition-api": "^1.7.2",
     "vue": "^2.7.16"
   },
   "devDependencies": {
