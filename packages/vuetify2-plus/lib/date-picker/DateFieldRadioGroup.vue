@@ -54,7 +54,7 @@
 
 <script>
 import dayjs from 'dayjs'
-import TheLabel from './container/TheLabel.vue'
+import TheLabel from '/container/TheLabel.vue'
 const MAX_DATE = '2999-12-31' 
 export default {
   name: 'vp-number-filed-radio-group',

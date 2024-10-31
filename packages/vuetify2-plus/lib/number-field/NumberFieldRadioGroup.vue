@@ -25,7 +25,7 @@
           <!-- {{ isDev() && data }} -->
           <div v-show="data >= 0" class="fix-align">
             <span class="mr-2">: </span>
-            <integer-field
+            <NumberField
               v-model.number="data"
               type="number"
               :min="0"
@@ -43,25 +43,12 @@
 
 <script>
 import { checkInteger, checkBiggerThanMinusOne } from '../form-rules'
-import IntegerField from './IntegerField.vue'
-import TheLabel from './container/TheLabel.vue'
-// 允许的值为 -1 以上的整数
-function configRightNumber(value) {
-  // 不存在这个值
-  if (!value) {
-    return 0
-  }
-  if (typeof val === 'string') {
-    return parseInt(value, 10) || -1
-  }
-  if (value < -1) {
-    return -1
-  }
-  return value
-}
+import NumberField from './NumberField.vue'
+import TheLabel from '../form-base/TheLabel.vue'
+import {configRightNumber } from './number-field.utils'
 export default {
   name: 'vp-number-filed-radio-group',
-  components: { IntegerField, TheLabel },
+  components: { NumberField, TheLabel },
   filters: {},
   mixins: {},
   props: {

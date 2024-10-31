@@ -24,7 +24,7 @@
 import { VTextField } from 'vuetify/lib'
 
 export default {
-  name: 'IntegerField',
+  name: 'NumberField',
   extends: VTextField,
   // filters:{},
   // mixins:[],
@@ -46,6 +46,7 @@ export default {
       const numberChecks = {
         number: /^[0-9]*$/, // 正整数
         integer: /^-?[0-9]*$/, // 整数
+        // TODO 自然数
         positiveInteger: /^[1-9]*[0-9]*$/, // 正整数
         negativeInteger: /^-[1-9]*[0-9]*$/ // 负整数
       }

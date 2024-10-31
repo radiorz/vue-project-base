@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import TheLabel from './container/TheLabel.vue'
+import TheLabel from '../form-base/TheLabel.vue'
 
 export default {
   name: 'KeyValueList',
