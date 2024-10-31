@@ -5,7 +5,6 @@
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
@@ -23,8 +22,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
     "paths": {
-      "@/lib/*": ["./lib/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["lib/**/*.ts","lib/.**/*.tsx","lib/**/*.js","lib/**/*.vue"]
