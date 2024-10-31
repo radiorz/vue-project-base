@@ -1,8 +1,9 @@
 {
   "name": "@tikkhun/vuetify2-plus",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "main": "dist/vuetify2-plus.js",
+  "module": "dist/vuetify2-plus.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
@@ -24,14 +25,15 @@
     "vuetify": "^2.7.2"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12",
     "@tikkhun/utils-core": "^0.0.8",
+    "@types/lodash-es": "^4.17.12",
     "@vitejs/plugin-vue2": "^2.3.1",
     "postcss": "^8.4.47",
     "sass": "^1.79.4",
     "tailwindcss": "^3.4.13",
     "typescript": "~5.6.2",
     "vite": "^5.4.9",
+    "vite-plugin-dts": "^4.3.0",
     "vue-tsc": "^2.1.6"
   }
 }

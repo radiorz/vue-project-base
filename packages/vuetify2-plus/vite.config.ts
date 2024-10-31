@@ -4,9 +4,10 @@ import packageJson from "./package.json";
 import { fileURLToPath, URL } from "node:url";
 import vue from "@vitejs/plugin-vue2";
 import { toBigCamelCase } from "@tikkhun/utils-core";
+import dts from 'vite-plugin-dts'
 const name = getNameFromPackageJson(packageJson);
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(),dts({tsconfigPath: './tsconfig.app.json',outDir:'dist'})],
   css: {
     preprocessorOptions: {
       scss: {
