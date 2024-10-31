@@ -30,14 +30,14 @@ export default {
   // filters:{},
   // mixins:[],
   props: {
+    open: {
+      type: Boolean,
+    },
     color: {
       type: String,
       // default: ()=> '',
       // required: true,
       // validator() { return  }
-    },
-    open: {
-      type: Boolean,
     },
     msg: {
       type: String,

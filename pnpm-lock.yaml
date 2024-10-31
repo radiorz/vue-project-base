@@ -187,21 +187,9 @@ importers:
 
   packages/vue2-ui:
     dependencies:
-      '@types/vue':
-        specifier: ^2.0.0
-        version: 2.0.0(typescript@5.6.3)
-      '@vue/composition-api':
-        specifier: ^1.7.2
-        version: 1.7.2(vue@2.7.16)
       element-ui:
         specifier: ^2.15.14
         version: 2.15.14(vue@2.7.16)
-      postcss:
-        specifier: ^8.4.47
-        version: 8.4.47
-      tailwindcss:
-        specifier: ^3.4.13
-        version: 3.4.13
       vue:
         specifier: ^2.7.16
         version: 2.7.16
@@ -212,9 +200,49 @@ importers:
       '@vitejs/plugin-vue2':
         specifier: ^2.3.1
         version: 2.3.1(vite@5.4.10(@types/node@22.7.5)(sass@1.79.4)(terser@5.27.2))(vue@2.7.16)
+      postcss:
+        specifier: ^8.4.47
+        version: 8.4.47
       sass:
         specifier: ^1.79.4
         version: 1.79.4
+      tailwindcss:
+        specifier: ^3.4.13
+        version: 3.4.13
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.9
+        version: 5.4.10(@types/node@22.7.5)(sass@1.79.4)(terser@5.27.2)
+      vue-tsc:
+        specifier: ^2.1.6
+        version: 2.1.6(typescript@5.6.3)
+
+  packages/vuetify2-plus:
+    dependencies:
+      vue:
+        specifier: ^2.7.16
+        version: 2.7.16
+      vuetify:
+        specifier: ^2.7.2
+        version: 2.7.2(vue@2.7.16)
+    devDependencies:
+      '@tikkhun/utils-core':
+        specifier: ^0.0.8
+        version: 0.0.8
+      '@vitejs/plugin-vue2':
+        specifier: ^2.3.1
+        version: 2.3.1(vite@5.4.10(@types/node@22.7.5)(sass@1.79.4)(terser@5.27.2))(vue@2.7.16)
+      postcss:
+        specifier: ^8.4.47
+        version: 8.4.47
+      sass:
+        specifier: ^1.79.4
+        version: 1.79.4
+      tailwindcss:
+        specifier: ^3.4.13
+        version: 3.4.13
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
@@ -1024,10 +1052,6 @@ packages:
 
   '@types/tough-cookie@4.0.5':
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
-
-  '@types/vue@2.0.0':
-    resolution: {integrity: sha512-WDElkBv/o4lVwu6wYHB06AXs4Xo2fwDjJUpvPRc1QQdzkUSiGFjrYuSCy8raxLE5FObgKq8ND7R5gSZTFLK60w==}
-    deprecated: This is a stub types definition for vuejs (https://github.com/vuejs/vue). vuejs provides its own type definitions, so you don't need @types/vue installed!
 
   '@typescript-eslint/eslint-plugin@7.13.0':
     resolution: {integrity: sha512-FX1X6AF0w8MdVFLSdqwqN/me2hyhuQg4ykN6ZpVhh1ij/80pTvDKclX1sZB9iqex8SjQfVhwMKs3JtnnMLzG9w==}
@@ -3553,6 +3577,11 @@ packages:
       typescript:
         optional: true
 
+  vuetify@2.7.2:
+    resolution: {integrity: sha512-qr04ww7uzAPQbpk751x4fSdjsJ+zREzjQ/rBlcQGuWS6MIMFMXcXcwvp4+/tnGsULZxPMWfQ0kmZmg5Yc/XzgQ==}
+    peerDependencies:
+      vue: ^2.6.4
+
   w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
     engines: {node: '>=18'}
@@ -4334,12 +4363,6 @@ snapshots:
 
   '@types/tough-cookie@4.0.5': {}
 
-  '@types/vue@2.0.0(typescript@5.6.3)':
-    dependencies:
-      vue: 3.5.11(typescript@5.6.3)
-    transitivePeerDependencies:
-      - typescript
-
   '@typescript-eslint/eslint-plugin@7.13.0(@typescript-eslint/parser@7.13.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)':
     dependencies:
       '@eslint-community/regexpp': 4.10.1
@@ -4834,10 +4857,6 @@ snapshots:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
-
-  '@vue/composition-api@1.7.2(vue@2.7.16)':
-    dependencies:
-      vue: 2.7.16
 
   '@vue/composition-api@1.7.2(vue@3.4.28(typescript@5.4.5))':
     dependencies:
@@ -7466,6 +7485,10 @@ snapshots:
       '@vue/shared': 3.5.11
     optionalDependencies:
       typescript: 5.6.3
+
+  vuetify@2.7.2(vue@2.7.16):
+    dependencies:
+      vue: 2.7.16
 
   w3c-xmlserializer@5.0.0:
     dependencies:

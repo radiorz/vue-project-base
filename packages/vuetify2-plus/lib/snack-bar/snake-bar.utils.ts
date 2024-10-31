@@ -1,6 +1,6 @@
 import Vuetify from "vuetify";
 import Vue from "vue";
-import Snackbar from "@/components/snackbar.vue";
+import Snackbar from "./Snackbar.vue";
 
 Vue.use(Vuetify);
 const v = new Vue({

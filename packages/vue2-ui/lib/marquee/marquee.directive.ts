@@ -1,6 +1,6 @@
 // marquee.js
 import "./marquee.css";
-
+import {addPx} from "../utils"
 export const SCROLL_DIRECTIONS = {
   up: "up",
   down: "down",
@@ -8,11 +8,8 @@ export const SCROLL_DIRECTIONS = {
   right: "right",
 };
 
-function addPx(value) {
-  return typeof value === "number" ? `${value}px` : value;
-}
 
-export const marquee = {
+export const marqueeDirective = {
   inserted(el, binding) {
     const settings = binding.value || {};
     const {
@@ -80,6 +77,6 @@ export const marquee = {
   },
 };
 
-export function marqueePlugin(Vue) {
-  Vue.directive("marquee", marquee);
+export function installMarquee(Vue) {
+  Vue.directive("marquee", marqueeDirective);
 }
