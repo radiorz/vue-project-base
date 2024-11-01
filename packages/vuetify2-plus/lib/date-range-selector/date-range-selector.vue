@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { isEmpty } from 'ramda'
+import { isEmpty } from 'lodash-es';
 export default {
   name: 'date-select',
   components: {},
