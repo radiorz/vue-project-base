@@ -88,7 +88,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style styled="scss" scoped>
 .fix-align {
   display: flex;
   align-items: center;

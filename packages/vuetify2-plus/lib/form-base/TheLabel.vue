@@ -19,7 +19,7 @@
 <template>
   <div style="width: 7rem">
     <v-label>
-      {{ label.indexOf(':') === -1 ? `${label}:` : label }}
+      {{ _label }}
     </v-label>
   </div>
 </template>
@@ -34,12 +34,20 @@ export default {
   props: {
     label: { type: String, default: '' }
   },
-  computed: {},
+  computed: {
+    _label() {
+      return this.addColon(this.label)
+    }
+  },
 
   // 组件方法
   // watch:{},
   // created(){},
-  methods: {}
+  methods: {
+    addColon(v) {
+      return v.endsWith(':') ? `${v}:` : v
+    }
+  }
 }
 </script>
 
