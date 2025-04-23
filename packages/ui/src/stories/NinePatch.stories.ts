@@ -14,7 +14,7 @@ const meta = {
     setup() {
       return { args }
     },
-    template: '<div style="padding: 20px;"> <NinePatch image="image.png"/></div>'
+    template: '<div style="padding: 20px;"> <NinePatch v-bind="args" image="image.png"/></div>'
   }),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
@@ -38,15 +38,26 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const A: Story = {
+export const Size1: Story = {
+  args: {
+    image: `image.png`,
+    topLength: 10,
+    leftLength: 10,
+    rightLength: 10,
+    bottomLength: 10,
+    width: 100,
+    height: 100
+  }
+}
+export const Size2: Story = {
   args: {
     image: `image.png`,
     topLength: 20,
     leftLength: 20,
     rightLength: 20,
     bottomLength: 20,
-    width: 100,
-    height: 100
+    width: 200,
+    height: 200
   }
 }
 
