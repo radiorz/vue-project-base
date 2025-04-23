@@ -14,7 +14,7 @@ const meta = {
     setup() {
       return { args }
     },
-    template: '<Ipv4Input V-model={value}/>'
+    template: '<Ipv4Input v-bind="args"/>'
   }),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
@@ -30,9 +30,31 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const A: Story = {
+export const Value: Story = {
   args: {
-    modelValue: '1.1.1.1'
+    modelValue: '1.1.1.1',
+    'onUpdate:modelValue': (e: any) => {
+      console.log(e)
+    },
+    disabled: false
+  }
+}
+export const Disabled: Story = {
+  args: {
+    modelValue: '1.1.1.1',
+    'onUpdate:modelValue': (e: any) => {
+      console.log(e)
+    },
+    disabled: true
+  }
+}
+export const Active: Story = {
+  args: {
+    modelValue: '1.1.1.1',
+    'onUpdate:modelValue': (e: any) => {
+      // this.modelValue = e
+    },
+    active: true
   }
 }
 
