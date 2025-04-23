@@ -31,12 +31,10 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   active: false
 })
-console.log(`props`, props)
 function getSegments(value: string) {
   return value.split('.').map((v) => parseInt(v, 10))
 }
 const segments = ref(getSegments(props.modelValue))
-console.log(`segments`, segments)
 watch(
   () => segments,
   (newVal) => {

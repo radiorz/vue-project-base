@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useNinePatchStyle } from './useNinePatchStyle'
 
 defineOptions({
   name: 'NinePatch'
@@ -40,32 +41,23 @@ const props = withDefaults(defineProps<Props>(), {
   width: 100,
   height: 100
 })
-function addPx(n: number | string) {
-  if (typeof n == 'string') return n
-  return `${n}px`
-}
-const style = computed(() => {
-  const top = addPx(props.topLength)
-  const left = addPx(props.leftLength)
-  const right = addPx(props.rightLength)
-  const bottom = addPx(props.bottomLength)
-  const style: any = {
-    borderImageSource: `url(${props.image})`,
-    borderImageSlice: `${props.topLength} ${props.rightLength} ${props.bottomLength} ${props.leftLength} fill`,
-    borderImageWidth: `${top} ${right} ${bottom} ${left}`,
-    borderImageOutset: `${top} ${right} ${bottom} ${left}`,
-    borderImageRepeat: 'repeat'
-  }
-  if (props.width) {
-    style.width = addPx(props.width)
-  }
-  if (props.height) {
-    style.height = addPx(props.height)
-  }
-  return style
+defineSlots<{
+  /** Example description for default */
+  default(props: {}): any
+}>()
+
+const style = useNinePatchStyle({
+  image: props.image,
+  width: props.width,
+  height: props.height,
+  topLength: props.topLength,
+  leftLength: props.leftLength,
+  rightLength: props.rightLength,
+  bottomLength: props.bottomLength
 })
 // export interface Emits {
 //   (e: 'change', value: number): void
+//   (e: 'click', value: number): void
 // }
 // const emit = defineEmits<Emits>()
 </script>
