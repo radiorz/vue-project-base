@@ -24,8 +24,8 @@ defineOptions({
 })
 export interface Props {
   image: string
-  width?: number | string
-  height?: number | string
+  width: number | string
+  height: number | string
   topLength: number
   leftLength: number
   rightLength: number
@@ -36,7 +36,9 @@ const props = withDefaults(defineProps<Props>(), {
   topLength: 10,
   leftLength: 10,
   rightLength: 10,
-  bottomLength: 10
+  bottomLength: 10,
+  width: 100,
+  height: 100
 })
 function addPx(n: number | string) {
   if (typeof n == 'string') return n

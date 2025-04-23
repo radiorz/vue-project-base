@@ -17,10 +17,11 @@
 -->
 
 <script setup lang="ts">
+import NinePatch from './NinePatch.vue'
 defineOptions({
   name: 'NinePatchDemo'
 })
-import NinePatch from './NinePatch.vue'
+
 </script>
 
 <template>
