@@ -4,10 +4,11 @@ import packageJson from './package.json'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import tailwindcss from '@tailwindcss/vite'
+
 const name = packageJson.name.split('/')[1]
 export default defineConfig({
-
-  plugins: [vue(), vueJsx()],
+  plugins: [vue(), vueJsx(), tailwindcss()],
 
   build: {
     lib: {
