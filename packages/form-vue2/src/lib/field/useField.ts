@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { validator } from "../core/validator";
+import { validator } from "../core/schema/validator";
 export const useField = ({ schema }) => {
   const value = ref(schema.default);
   const error = ref("");
