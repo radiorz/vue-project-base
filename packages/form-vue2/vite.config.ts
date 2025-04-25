@@ -10,14 +10,14 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/styles/variables.scss";`,
+        // additionalData: `@import "@/styles/variables.scss";`,
       },
     },
   },
   build: {
     sourcemap: true,
     lib: {
-      entry: "./lib/index.ts",
+      entry: "./src/lib/index.ts",
       name: toBigCamelCase(name),
       fileName: name,
     },
@@ -33,7 +33,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./lib", import.meta.url)),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
 });
