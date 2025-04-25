@@ -15,7 +15,7 @@
 <script>
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "Form",
+  name: "TheForm",
   // components: {},
   props: {},
   // 从组件触发 emits 事件
