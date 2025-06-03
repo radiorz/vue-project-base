@@ -2,9 +2,9 @@
  
 /**
  * @author
- * @file Form.vue
- * @fileBase Form
- * @path packages\form-vue2\src\lib\Form.vue
+ * @file TheForm.vue
+ * @fileBase TheForm
+ * @path packages\form\src\lib\form\TheForm.vue
  * @from 
  * @desc 
  * @example
@@ -12,31 +12,28 @@
 
 -->
 
-<script>
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "TheForm",
-  // components: {},
-  props: {},
-  // 从组件触发 emits 事件
-  // emits:[],
-  // 暴露
-  // expose: {},
-  setup(props, ctx) {},
-  data() {
-    return {};
-  },
-  // computed:{},
-  // watch:{},
-  // created(){},
-  // methods:{}
-});
+<script setup lang="ts">
+defineOptions({
+  name: "TheForm"
+})
+export interface Props {
+  foo: string
+}
+const props = withDefaults(defineProps<Props>(),{
+  foo: ''
+})
+export interface Emits {
+  (e:'change', value: number): void
+}
+const emit = defineEmits<Emits>()
 </script>
 
 <template>
-  <div class="">
-    <component></component>
+  <div class="TheForm">
+    TheForm
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

@@ -17,6 +17,6 @@
   "license": "ISC",
   "devDependencies": {
     "del-cli": "^6.0.0",
-    "turbo": "^2.1.3"
+    "turbo": "^2.5.3"
   }
 }

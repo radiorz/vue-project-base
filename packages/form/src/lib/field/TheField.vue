@@ -2,9 +2,9 @@
  
 /**
  * @author
- * @file index.vue
- * @fileBase field
- * @path packages\form-vue2\src\lib\field\index.vue
+ * @file TheField.vue
+ * @fileBase TheField
+ * @path packages\form\src\lib\field\TheField.vue
  * @from 
  * @desc 
  * @example
@@ -12,32 +12,24 @@
 
 -->
 
-<script>
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'TheField',
-  // components: {},
-  props: {},
-  // 从组件触发 emits 事件
-  // emits:[],
-  // 暴露
-  // expose: {},
-  setup(props,ctx){
-
-  },
-  data() {
-    return {}
-  }
-  // computed:{},
-  // watch:{},
-  // created(){},
-  // methods:{}
-})
+<script setup lang="ts">
+defineOptions({
+  name: "TheField",
+});
+export interface Props {
+  foo: string;
+}
+const props = withDefaults(defineProps<Props>(), {
+  foo: "",
+});
+export interface Emits {
+  (e: "change", value: number): void;
+}
+const emit = defineEmits<Emits>();
 </script>
 
 <template>
-  <div class="">
-  </div>
+  <div class="TheField">TheField</div>
 </template>
 
 <style lang="scss" scoped></style>

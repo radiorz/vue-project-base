@@ -1,6 +1,6 @@
 import { ref } from "vue";
-import { validator } from "../core/schema/SchemaHandler";
-export const useField = ({ schema }) => {
+import { generateValidator } from "../core/schema/SchemaHandler";
+export const useField = ({ schema,  }) => {
   const value = ref(schema.default);
   const error = ref("");
   function reset() {
@@ -10,7 +10,7 @@ export const useField = ({ schema }) => {
     try {
       const result = validator.validate(schema, value);
       return result;
-    } catch (err: unknown) {
+    } catch (err: any) {
       error.value = err?.message || "校验出错";
     }
   }
