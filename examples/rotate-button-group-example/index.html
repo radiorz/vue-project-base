@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转按钮组示例</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.6.10/dist/vuetify.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.6.10/dist/vuetify.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .usage-example {
+            margin-top: 40px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>旋转按钮组组件示例</h1>
+        <div id="app">
+            <rotate-button-group :menu="menu" main-button-text="菜单">
+                <template v-slot:main-button>
+                    <i class="fa fa-bars"></i>
+                </template>
+                <template v-slot:button-0="{ item }">
+                    <i :class="item.icon"></i>
+                </template>
+                <template v-slot:button-1="{ item }">
+                    <i :class="item.icon"></i>
+                </template>
+                <template v-slot:button-2="{ item }">
+                    <i :class="item.icon"></i>
+                </template>
+                <template v-slot:button-3="{ item }">
+                    <i :class="item.icon"></i>
+                </template>
+                <template v-slot:button-4="{ item }">
+                    <i :class="item.icon"></i>
+                </template>
+            </rotate-button-group>
+
+            <div class="usage-example">
+                <h2>使用示例</h2>
+                <pre><code> &lt;rotate-button-group :menu="menu" main-button-text="菜单"&gt;
+    &lt;template v-slot:main-button&gt;
+        &lt;i class="fa fa-bars"&gt;&lt;/i&gt;
+    &lt;/template&gt;
+    &lt;template v-slot:button-0="{ item }"&gt;
+        &lt;i :class="item.icon"&gt;&lt;/i&gt;
+    &lt;/template&gt;
+    &lt;!-- 其他按钮的slot --&gt;
+&lt;/rotate-button-group&gt;
+
+&lt;script&gt;
+new Vue({
+    data() {
+        return {
+            menu: [
+                { text: '新建', icon: 'fa fa-plus', onClick: () => alert('新建') },
+                { text: '编辑', icon: 'fa fa-edit', onClick: () => alert('编辑') },
+                { text: '删除', icon: 'fa fa-trash', onClick: () => alert('删除') },
+                { text: '设置', icon: 'fa fa-cog', onClick: () => alert('设置') },
+                { text: '帮助', icon: 'fa fa-question', onClick: () => alert('帮助') }
+            ]
+        }
+    }
+})
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 导入旋转按钮组组件
+        Vue.component('rotate-button-group', {
+            template: `
+                <div class="rotate-button-group-container" @mouseenter="showMenu" @mouseleave="hideMenu">
+                    <!-- 主按钮 -->
+                    <button class="main-button" @click="handleMainClick">
+                        <slot name="main-button">{{ mainButtonText }}</slot>
+                    </button>
+
+                    <!-- 副按钮容器 -->
+                    <div class="secondary-buttons-container" :class="{ 'expanded': isExpanded }">
+                        <!-- 副按钮 -->
+                        <template v-for="(item, index) in menu" :key="index">
+                            <button
+                                class="secondary-button"
+                                :style="getButtonStyle(index)"
+                                @click="handleSecondaryClick(item, index)"
+                            >
+                                <slot :name="`button-${index}`" :item="item">
+                                    {{ item.text || `Button ${index + 1}` }}
+                                </slot>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            `,
+            props: {
+                menu: {
+                    type: Array,
+                    required: true,
+                    validator: (value) => {
+                        return value.every(item => typeof item === 'object' && item !== null);
+                    }
+                },
+                mainButtonText: {
+                    type: String,
+                    default: 'Menu'
+                },
+                radius: {
+                    type: Number,
+                    default: 100
+                },
+                animationDuration: {
+                    type: Number,
+                    default: 300
+                }
+            },
+            data(){
+                return{
+                    isExpanded: false,
+                    lastLeaveTime: 0,
+                    leaveDelay: 200
+                }
+            },
+            computed: {
+                buttonCount() {
+                    return this.menu.length;
+                },
+                angleStep() {
+                    return 360 / this.buttonCount;
+                }
+            },
+            methods: {
+                showMenu() {
+                    this.isExpanded = true;
+                },
+                hideMenu() {
+                    this.lastLeaveTime = Date.now();
+                    setTimeout(() => {
+                        if (Date.now() - this.lastLeaveTime >= this.leaveDelay) {
+                            this.isExpanded = false;
+                        }
+                    }, this.leaveDelay);
+                },
+                getButtonStyle(index) {
+                    const angle = (index * this.angleStep * Math.PI) / 180;
+                    const x = this.radius * Math.cos(angle);
+                    const y = this.radius * Math.sin(angle);
+                    const rotateAngle = index * this.angleStep;
+
+                    return {
+                        transform: `translate(${x}px, ${y}px) rotate(${rotateAngle}deg)`,
+                        transition: `transform ${this.animationDuration}ms ease-out`
+                    };
+                },
+                handleMainClick() {
+                    this.$emit('main-click');
+                },
+                handleSecondaryClick(item, index) {
+                    this.$emit('secondary-click', item, index);
+                    if (item.onClick && typeof item.onClick === 'function') {
+                        item.onClick(item, index);
+                    }
+                }
+            }
+        });
+
+        // 创建Vue实例
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    menu: [
+                        { text: '新建', icon: 'fa fa-plus', onClick: () => alert('新建') },
+                        { text: '编辑', icon: 'fa fa-edit', onClick: () => alert('编辑') },
+                        { text: '删除', icon: 'fa fa-trash', onClick: () => alert('删除') },
+                        { text: '设置', icon: 'fa fa-cog', onClick: () => alert('设置') },
+                        { text: '帮助', icon: 'fa fa-question', onClick: () => alert('帮助') }
+                    ]
+                }
+            }
+        });
+    </script>
+
+    <style scoped>
+        .rotate-button-group-container {
+            position: relative;
+            display: inline-block;
+            width: calc(2 * 100px + 40px);
+            height: calc(2 * 100px + 40px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .main-button {
+            position: relative;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #3367d6;
+        }
+
+        .secondary-buttons-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+        }
+
+        .secondary-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            color: #4285f4;
+            border: 1px solid #4285f4;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s ease-out;
+            z-index: 1;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .secondary-button:hover {
+            background-color: #f1f3f4;
+        }
+
+        .expanded .secondary-button {
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</body>
+</html>

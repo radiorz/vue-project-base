@@ -1,5 +1,3 @@
-
-
 <!--
  
 /**
@@ -15,21 +13,23 @@
 -->
 
 <template>
-  <ToggleButtonDemo></ToggleButtonDemo>
+  <RotateButtonGroupDemo></RotateButtonGroupDemo>
+  <!-- <ToggleButtonDemo></ToggleButtonDemo> -->
 </template>
 
 <script lang="ts">
-import ToggleButtonDemo from '../lib/toggle-button/ToggleButton.demo.vue'
+import RotateButtonGroupDemo from '../lib/button/rotate-button-group.demo.vue'
+// import ToggleButtonDemo from '../lib/toggle-button/ToggleButton.demo.vue'
 export default {
   // 组件名
   name: 'App',
-  components: {ToggleButtonDemo},
+  components: { RotateButtonGroupDemo },
   // filters:{},
   // mixins:[],
   // props: {},
-  data(){
-    return{
-      
+  data() {
+    return {
+
     }
   },
   // 组件方法
@@ -38,8 +38,6 @@ export default {
   // created(){},
   methods: {},
 }
-</script> 
+</script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

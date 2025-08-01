@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@tikkhun/vue-hooks": "workspace:^",
-    "@tikkhun/web-utils": "^0",
+    "@tikkhun/web-utils": "latest",
     "vue": "^3.5.13"
   },
   "devDependencies": {

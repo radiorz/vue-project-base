@@ -1,9 +1,10 @@
-# pnpm-workspace.yaml
-
 packages:
-  - "packages/*"
-  - "projects/*"
-  - "docs/*"
-  - "tools/*"
-  - "templates/*"
-  - "examples/*"
+  - packages/**/*
+  - projects/*
+  - docs/*
+  - tools/*
+  - templates/*
+  - examples/*
+
+onlyBuiltDependencies:
+  - core-js
