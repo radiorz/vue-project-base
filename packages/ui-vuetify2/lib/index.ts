@@ -15,4 +15,4 @@ export * from './resizable';
 export * from './slider';
 export * from "./snack-bar";
 export * from './time-picker';
-
+export * from './button'
